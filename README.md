@@ -19,16 +19,14 @@ cd nanobox-iris
 ## Run the app
 
 ```bash
+# Add a convenient way to access your app from the browser
+nanobox dns add local iris.dev
+
 # Run Iris as you would normally, with Nanobox
 nanobox run go run main.go
 ```
 
 ## Check it out
-
-```bash
-# Add a convenient way to access your app from the browser
-nanobox dns add local iris.dev
-```
 
 Visit your app at <a href="http://iris.dev:8080/hi" target="\_blank">iris.dev:8080/hi</a>
 
