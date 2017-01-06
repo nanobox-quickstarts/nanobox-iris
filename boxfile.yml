@@ -1,0 +1,4 @@
+run.config:
+  engine: golang
+  engine.config:
+    package: nanobox-iris
