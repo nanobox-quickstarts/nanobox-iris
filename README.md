@@ -43,7 +43,7 @@ nanobox run
 go version
 
 # your packages are available,
-git -v
+git --version
 
 # and your code is mounted
 ls
