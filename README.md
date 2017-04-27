@@ -22,6 +22,9 @@ cd nanobox-iris
 # Add a convenient way to access your app from the browser
 nanobox dns add local iris.dev
 
+# Install dependencies
+nanobox run go get -v
+
 # Run Iris as you would normally, with Nanobox
 nanobox run go run main.go
 ```
