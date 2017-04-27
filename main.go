@@ -1,13 +1,18 @@
 package main
 
-// ./main.go
-import "github.com/kataras/iris"
+import (
+	iris "gopkg.in/kataras/iris.v6"
+	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
+)
 
 func main() {
-	iris.Get("/hi", hi)
-	iris.Listen(":8080")
-}
+	app := iris.New()
 
-func hi(ctx *iris.Context) {
-	ctx.Render("hi.html", struct{ Name string }{Name: "iris"})
+	app.Adapt(httprouter.New())
+
+	app.HandleFunc("GET", "/", func(ctx *iris.Context) {
+		ctx.Writef("hello world\n")
+	})
+
+	app.Listen(":8080")
 }
