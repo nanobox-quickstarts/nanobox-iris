@@ -31,7 +31,7 @@ nanobox run go run main.go
 
 ## Check it out
 
-Visit your app at <a href="http://iris.dev:8080/hi" target="\_blank">iris.dev:8080/hi</a>
+Visit your app at <a href="http://iris.dev" target="\_blank">iris.dev</a>
 
 ## Explore
 With Nanobox, you don't have to have anything installed on your machine to run your app:
