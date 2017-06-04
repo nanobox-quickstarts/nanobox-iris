@@ -1,18 +1,15 @@
 package main
 
 import (
-	iris "gopkg.in/kataras/iris.v6"
-	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
+	"github.com/kataras/iris"
+	"github.com/kataras/iris/context"
 )
 
 func main() {
 	app := iris.New()
-
-	app.Adapt(httprouter.New())
-
-	app.HandleFunc("GET", "/", func(ctx *iris.Context) {
+	app.Handle("GET", "/", func(ctx context.Context) {
 		ctx.Writef("hello world\n")
 	})
 
-	app.Listen(":8080")
+	app.Run(iris.Addr(":8080"))
 }
