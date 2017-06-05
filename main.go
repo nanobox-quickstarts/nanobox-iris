@@ -1,18 +1,24 @@
 package main
 
 import (
-	iris "gopkg.in/kataras/iris.v6"
-	"gopkg.in/kataras/iris.v6/adaptors/httprouter"
+	"github.com/kataras/iris"
+	"github.com/kataras/iris/context"
+	"github.com/kataras/iris/view"
 )
 
 func main() {
 	app := iris.New()
-
-	app.Adapt(httprouter.New())
-
-	app.HandleFunc("GET", "/", func(ctx *iris.Context) {
-		ctx.Writef("hello world\n")
+	
+	// load the ./templates/**.html
+	templates := view.HTML("./templates", ".html"))
+	app.AttachView(templates)
+	
+	app.Handle("GET", "/", func(ctx context.Context) {
+	        // bind the {{ .Name }}
+		ctx.ViewData("Name", "iris")
+		// render the ./templates/hi.html
+		ctx.View("hi.html")
 	})
 
-	app.Listen(":8080")
+	app.Run(iris.Addr(":8080"))
 }
